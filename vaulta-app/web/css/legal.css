@@ -1,0 +1,43 @@
+/* ===== Legal documents (body.legal-page) ===== */
+.legal-page .lg-wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,5vw,60px)}
+.legal-page .lg-body{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(32px,5vw,72px);padding-block:clamp(40px,6vw,80px)}
+.legal-page .lg-side{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:13px}
+.legal-page .lg-side h2{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#526B82;margin:0 0 12px}
+.legal-page .lg-side ul,.legal-page .lg-side ol{list-style:none;margin:0 0 28px;padding:0}
+.legal-page .lg-side a{display:block;padding:7px 0 7px 12px;border-left:2px solid #E3E7EB;color:#3b4652;line-height:1.4}
+.legal-page .lg-side a:hover{color:#000;border-color:#9aa6b2}
+.legal-page .lg-side a[aria-current]{color:#000;border-color:#000;font-weight:700}
+.legal-page .lg-side details>summary{cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#526B82;margin-bottom:12px}
+.legal-page .lg-meta{color:#aaa;font-size:14px;margin:10px 0 0}
+.legal-page .lg-article{max-width:760px;min-width:0;color:#080A0D;scroll-behavior:smooth}
+.legal-page .lg-article h2{font-size:clamp(20px,2vw,26px);letter-spacing:-.02em;line-height:1.25;margin:2.2em 0 .6em;scroll-margin-top:100px}
+.legal-page .lg-article h2:first-child,.legal-page .lg-note+h2{margin-top:0}
+.legal-page .lg-article h3{font-size:18px;margin:1.6em 0 .5em;scroll-margin-top:100px}
+.legal-page .lg-article p,.legal-page .lg-article li{font-size:16px;line-height:1.75;color:#222}
+.legal-page .lg-article p{margin:0 0 1em;max-width:none}
+.legal-page .lg-article ul,.legal-page .lg-article ol{margin:0 0 1.2em;padding-left:1.3em}.legal-page .lg-article li{margin:.35em 0}
+.legal-page .lg-article a{text-decoration:underline;text-underline-offset:3px}
+.legal-page .lg-article hr{border:0;border-top:1px solid #E3E7EB;margin:2em 0}
+.legal-page .lg-table{overflow-x:auto}.legal-page .lg-table table{border-collapse:collapse;width:100%;font-size:14px}.legal-page .lg-table th,.legal-page .lg-table td{border:1px solid #E3E7EB;padding:8px 10px;text-align:left}
+.legal-page mark.lg-missing{background:#FFF3CD;color:#5c4400;padding:0 3px;border-radius:3px;font-weight:600}
+.legal-page .lg-note{border-left:3px solid #526B82;background:#F4F6F8;padding:12px 16px;margin:0 0 1.6em;font-size:14px;line-height:1.6}
+.legal-page .lg-note--warn{border-color:#b58100;background:#FFF8E1}
+.legal-page .lg-error{padding:24px 0;color:#b3261e;font-weight:600}
+.legal-page .lg-actions{margin-top:2.4em}
+.legal-page .lg-foot{display:flex;flex-wrap:wrap;gap:12px 28px;border-top:1px solid #E3E7EB;padding-block:24px 56px;font-size:14px}
+.legal-page .lg-foot a,.legal-page .lg-foot button{background:none;border:0;padding:0;color:#080A0D;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:inherit}
+.legal-page .lg-btn{background:#080A0D;color:#fff!important;text-decoration:none!important;padding:12px 22px;border-radius:999px}
+@media(max-width:900px){
+ .legal-page .lg-body{grid-template-columns:1fr;gap:20px}
+ .legal-page .lg-side{position:static;max-height:none;overflow:visible;border-bottom:1px solid #E3E7EB;padding-bottom:8px}
+ .legal-page .lg-side ul.lg-nav-list{display:flex;flex-wrap:wrap;gap:4px 16px}.legal-page .lg-side ul.lg-nav-list a{border-left:0;padding:6px 0;text-decoration:underline}
+ .legal-page .lg-side ol{margin-bottom:12px}
+}
+@media print{
+ .legal-page .nav,.legal-page .mobile-menu,.legal-page .footer,.legal-page .iv-hero nav,.legal-page .lg-side,.legal-page .lg-foot,.legal-page .vc-banner,.legal-page .lg-actions,.legal-page .progress,.legal-page .totop,.legal-page .toast{display:none!important}
+ .legal-page .iv-hero{background:none!important;color:#000!important;padding:0 0 12px!important;min-height:0!important}.legal-page .iv-hero *{color:#000!important}
+ .legal-page .lg-body{display:block;padding:0}.legal-page .lg-article p,.legal-page .lg-article li{font-size:11pt;color:#000}
+ .legal-page .lg-article a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt}
+ .legal-page mark.lg-missing{background:none;border:1px solid #000}
+}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}

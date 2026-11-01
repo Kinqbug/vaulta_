@@ -1,0 +1,33 @@
+{% if banner %}[{{ banner }}]
+
+{% endif %}VAULTA
+======
+
+{% if badge %}[{{ badge }}]
+{% endif %}{{ headline }}
+
+{% for para in intro %}{{ para | join('\n') }}
+
+{% endfor %}{% for label, value in details %}{{ label }}
+{{ value | join('\n') }}
+
+{% endfor %}{% if summary %}{{ summary_title | upper }}
+{% for label, value in summary %}  {{ label }}: {{ value }}
+{% endfor %}
+{% endif %}{% for para in after %}{{ para | join('\n') }}
+
+{% endfor %}{% if cta_url %}{{ cta_label }}:
+{{ cta_url }}
+
+{% endif %}{% if notice %}{{ notice }}
+
+{% endif %}{% if security_reminder %}VAULTA will never ask for your password, one-time codes or recovery phrases by email, text message or phone.
+
+{% endif %}--
+VAULTA{% if footer.legal_line %}
+{{ footer.legal_line }}{% endif %}
+{% for label, url in footer.links %}{{ label }}: {{ url }}
+{% endfor %}{% if footer.support_email %}Questions? {{ footer.support_email }}
+{% endif %}{% if footer.reason %}
+{{ footer.reason }}
+{% endif %}

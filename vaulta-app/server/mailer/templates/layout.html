@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ subject }}</title>
+<style>
+  /* Progressive enhancement only. Every essential style is also inline, so clients that strip <style> still render correctly. */
+  body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+  a { color: inherit; }
+  @media only screen and (max-width: 520px) {
+    .outer-pad { padding: 0 !important; }
+    .px { padding-left: 24px !important; padding-right: 24px !important; }
+    .h1 { font-size: 22px !important; }
+    .kv-l, .kv-r { display: block !important; width: 100% !important; text-align: left !important; padding-right: 0 !important; }
+    .kv-l { padding-bottom: 2px !important; }
+    .btn-wrap, .btn-wrap table { width: 100% !important; }
+    .btn { display: block !important; padding-left: 16px !important; padding-right: 16px !important; }
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background-color:#1c1c1c;">
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">{{ preheader }}{% for _ in range(40) %}&#8199;&#847;{% endfor %}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1c1c1c;">
+<tr><td align="center" class="outer-pad" style="padding:24px 16px 32px 16px;">
+  {% if banner %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;"><tr><td style="background-color:#ffffff;color:#111111;border:2px dashed #111111;padding:10px 16px;font-family:{{ font }};font-size:12px;line-height:1.4;font-weight:700;text-align:center;">{{ banner }}</td></tr></table>
+  <div style="height:8px;line-height:8px;font-size:8px;">&nbsp;</div>
+  {% endif %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background-color:#f5f5f5;">
+    <!-- brand -->
+    <tr><td class="px" style="padding:40px 44px 0 44px;">
+      <a href="{{ home_url }}" target="_blank" style="text-decoration:none;"><img src="{{ logo_url }}" alt="VAULTA" width="132" style="display:block;width:132px;max-width:100%;height:auto;border:0;"></a>
+    </td></tr>
+    <!-- headline + intro -->
+    <tr><td class="px" style="padding:36px 44px 0 44px;font-family:{{ font }};color:#111111;">
+      {% if badge %}<div style="padding:0 0 14px 0;"><span style="display:inline-block;padding:5px 12px;border-radius:999px;font-size:11px;line-height:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;{{ badge_style }}">{{ badge }}</span></div>{% endif %}
+      <h1 class="h1" style="margin:0;font-family:{{ font }};font-size:24px;line-height:1.25;font-weight:800;color:#111111;">{{ headline }}</h1>
+    </td></tr>
+    <tr><td class="px" style="padding:16px 44px 0 44px;font-family:{{ font }};font-size:14px;line-height:1.65;color:#3a3a3a;">
+      {% for para in intro %}<p style="margin:0 0 14px 0;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endfor %}
+    </td></tr>
+    <!-- stacked details (label above value, as in the reference) -->
+    {% if details %}
+    <tr><td class="px" style="padding:6px 44px 0 44px;font-family:{{ font }};">
+      {% for label, value in details %}
+      <div style="padding:0 0 16px 0;"><div style="font-size:13px;line-height:1.4;font-weight:700;color:#111111;">{{ label }}</div><div style="font-size:14px;line-height:1.5;color:#3a3a3a;word-break:break-word;">{% for line in value %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div></div>
+      {% endfor %}
+    </td></tr>
+    {% endif %}
+    <!-- boxed summary (the reference's product/transaction panel) -->
+    {% if summary %}
+    <tr><td class="px" style="padding:8px 44px 8px 44px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border:1px solid #e6e6e6;border-radius:4px;">
+        <tr><td colspan="2" style="padding:16px 20px 6px 20px;font-family:{{ font }};font-size:11px;line-height:1.4;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b6b6b;">{{ summary_title }}</td></tr>
+        {% for label, value in summary %}
+        <tr>
+          <td class="kv-l" valign="top" style="padding:8px 12px 8px 20px;font-family:{{ font }};font-size:13px;line-height:1.45;color:#6b6b6b;width:38%;{% if loop.last %}padding-bottom:18px;{% endif %}">{{ label }}</td>
+          <td class="kv-r" valign="top" align="right" style="padding:8px 20px 8px 0;font-family:{{ font }};font-size:13px;line-height:1.45;font-weight:700;color:#111111;text-align:right;word-break:break-word;{% if loop.last %}padding-bottom:18px;{% endif %}">{{ value }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td></tr>
+    {% endif %}
+    {% if after %}
+    <tr><td class="px" style="padding:12px 44px 0 44px;font-family:{{ font }};font-size:14px;line-height:1.65;color:#3a3a3a;">
+      {% for para in after %}<p style="margin:0 0 14px 0;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endfor %}
+    </td></tr>
+    {% endif %}
+    <!-- the single primary call to action -->
+    {% if cta_url %}
+    <tr><td class="px btn-wrap" style="padding:14px 44px 0 44px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td align="center" bgcolor="#111111" style="border-radius:999px;background-color:#111111;"><a class="btn" href="{{ cta_url }}" target="_blank" style="display:inline-block;padding:16px 34px;border-radius:999px;font-family:{{ font }};font-size:12px;line-height:1;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;text-decoration:none;">{{ cta_label }}</a></td>
+      </tr></table>
+      {% if show_link_fallback %}<p style="margin:16px 0 0 0;font-family:{{ font }};font-size:12px;line-height:1.5;color:#6b6b6b;">If the button does not work, copy and paste this link into your browser:<br><a href="{{ cta_url }}" style="color:#111111;word-break:break-all;">{{ cta_url }}</a></p>{% endif %}
+    </td></tr>
+    {% endif %}
+    {% if notice %}
+    <tr><td class="px" style="padding:24px 44px 0 44px;font-family:{{ font }};font-size:12px;line-height:1.6;color:#6b6b6b;">{{ notice }}</td></tr>
+    {% endif %}
+    {% if security_reminder %}
+    <tr><td class="px" style="padding:{% if notice %}10px{% else %}24px{% endif %} 44px 0 44px;font-family:{{ font }};font-size:12px;line-height:1.6;color:#6b6b6b;">VAULTA will never ask for your password, one-time codes or recovery phrases by email, text message or phone.</td></tr>
+    {% endif %}
+    <tr><td style="padding:0;font-size:0;line-height:44px;height:44px;">&nbsp;</td></tr>
+  </table>
+  <!-- footer -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;">
+    <tr><td align="center" class="px" style="padding:28px 24px 0 24px;font-family:{{ font }};font-size:12px;line-height:1.7;color:#8c8c8c;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.12em;color:#a6a6a6;">VAULTA</div>
+      {% if footer.legal_line %}<div style="padding-top:6px;">{{ footer.legal_line }}</div>{% endif %}
+      <div style="padding-top:10px;">
+        {% for label, url in footer.links %}<a href="{{ url }}" target="_blank" style="color:#a6a6a6;text-decoration:underline;">{{ label }}</a>{% if not loop.last %}&nbsp;&bull;&nbsp;{% endif %}{% endfor %}
+      </div>
+      {% if footer.support_email %}<div style="padding-top:6px;">Questions? <a href="mailto:{{ footer.support_email }}" style="color:#a6a6a6;text-decoration:underline;">{{ footer.support_email }}</a></div>{% endif %}
+      {% if footer.reason %}<div style="padding-top:10px;color:#7a7a7a;">{{ footer.reason }}</div>{% endif %}
+    </td></tr>
+  </table>
+</td></tr>
+</table>
+</body>
+</html>

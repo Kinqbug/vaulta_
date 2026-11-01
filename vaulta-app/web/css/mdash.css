@@ -1,0 +1,85 @@
+/* VAULTA mobile home. Scoped to .mdash / .ddash so no other page changes. Desktop (>=861px) keeps the existing dashboard. */
+.mdash{--m-bg:#fff;--m-ink:#101010;--m-sub:#687386;--m-mut:#778196;--m-dark:#111;--m-bd:#E4E9F0;--m-soft:#F5F6F8;--m-div:#E7EBF0;--m-up:#16865B;--m-dn:#C53B3B;
+ --m-r:20px;--m-gap:14px;--m-pad:clamp(14px,4.6vw,20px);color:var(--m-ink)}
+.mdash .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mdash .mi{display:block;flex:none}
+@media(min-width:861px){.mdash{display:none}}
+@media(max-width:860px){
+ .ddash,.dhero.is-dash{display:none}
+ .mdash{display:block;max-width:640px;margin:0 auto}
+ .mdash a:focus-visible,.mdash button:focus-visible{outline:2px solid var(--m-ink);outline-offset:2px;border-radius:12px}
+ .mdash .mdark a:focus-visible,.mdash .mdark button:focus-visible{outline-color:#fff}
+
+ /* header */
+ .mh{display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top,0px)) 0 12px}
+ .mh-logo{display:block;min-height:44px;display:flex;align-items:center}.mh-logo .logo-img{--logo-w:clamp(104px,33vw,132px)}
+ .mh-bell{position:relative;display:grid;place-items:center;width:48px;height:48px;margin-right:-8px;color:var(--m-ink)}
+ .mh-n{position:absolute;top:4px;right:2px;min-width:20px;height:20px;padding:0 5px;border-radius:99px;background:var(--m-dark);color:#fff;font-size:11px;font-weight:700;line-height:20px;text-align:center;box-shadow:0 0 0 2px #fff;font-variant-numeric:tabular-nums}
+ .mh-n[hidden]{display:none}
+
+ body.m-home,body.m-home .main{background:#fff}
+ .mbody{display:grid;gap:var(--m-gap)}
+ .mc{background:#fff;border:1px solid var(--m-bd);border-radius:var(--m-r);padding:var(--m-pad);min-width:0}
+ .mc h2{margin:0}
+ .mdark{background:var(--m-dark);border-color:var(--m-dark);color:#fff}
+ .mc-h{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;color:inherit}
+ .mc-t{display:flex;align-items:center;gap:12px;min-width:0}.mc-t h2{font-size:clamp(16px,4.6vw,18px);font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+ /* portfolio */
+ .mport{padding:clamp(16px,5vw,22px) var(--m-pad) 6px;display:grid;grid-template-columns:minmax(0,1fr) minmax(70px,30%);grid-template-areas:"top top" "val chart" "perf chart" "cash cash";column-gap:8px;border-radius:22px}
+ .mp-top{grid-area:top;display:flex;align-items:center;justify-content:space-between;color:#fff;min-height:28px}
+ .mp-lab{font-size:clamp(11.5px,3.3vw,13.5px);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#d8d8d8}
+ .mp-val{grid-area:val;margin:6px 0 4px;font-size:clamp(24px,8.1vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1;white-space:nowrap;font-variant-numeric:tabular-nums;min-width:0}
+ .mp-val.long{font-size:clamp(19px,6.3vw,28px)}
+ .mp-perf{grid-area:perf;display:flex;align-items:center;gap:7px;margin:0 0 16px;font-size:clamp(13px,3.8vw,15px);min-height:22px;color:#fff;flex-wrap:wrap;row-gap:2px}
+ .mp-perf b{font-weight:700}.mp-perf span{color:#d4d4d4}.mp-perf.dn{color:#ff9b9b}.mp-none{font-size:13px;color:#b5b5b5}
+ .mp-chart{grid-area:chart;align-self:end;margin-bottom:18px;height:clamp(48px,15vw,68px);min-width:0}.mp-chart svg{display:block;width:100%;height:100%}
+ .mp-cash{grid-area:cash;display:flex;align-items:center;gap:14px;border-top:1px solid #333;padding:14px 0 12px;margin-top:0}
+ .mp-w{display:grid;place-items:center;width:34px;flex:none;color:#fff}
+ .mp-ct{display:grid;min-width:0;flex:1}.mp-ct small{font-size:13px;color:#d8d8d8;line-height:1.3}.mp-ct b{font-size:clamp(19px,5.6vw,23px);font-weight:700;letter-spacing:-.01em;line-height:1.25;white-space:nowrap;font-variant-numeric:tabular-nums}
+ .mp-eye{display:grid;place-items:center;width:48px;height:48px;margin:-6px -8px -6px 0;border:0;background:none;color:#fff;cursor:pointer;border-radius:50%}
+
+ /* quick actions */
+ .mq-h{font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--m-sub);margin:0 0 18px 2px;line-height:1.3}
+ .mq-h.sub{margin-top:4px}
+ .mqa .mq-h{margin:0 0 18px 2px}
+ .mqa .mq-h.sub{margin-top:6px}
+ .qgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px clamp(4px,1.5vw,10px);padding-bottom:2px}
+ .qgrid.d{padding-bottom:20px;margin-bottom:18px;border-bottom:1px solid var(--m-div)}
+ .qa{display:grid;justify-items:center;align-content:start;gap:10px;color:var(--m-ink);min-width:0;text-align:center;padding:2px 0}
+ .qi{display:grid;place-items:center;width:clamp(40px,12.4vw,48px);aspect-ratio:1;border-radius:clamp(12px,3.7vw,15px);background:var(--m-dark);color:#fff;transition:transform .12s}
+ .qa:active .qi{transform:scale(.96)}
+ .qi .mi{width:clamp(18px,5.4vw,22px);height:auto;aspect-ratio:1}
+ .ql{font-size:clamp(10.5px,3.1vw,12.5px);font-weight:500;line-height:1.2;overflow-wrap:break-word;max-width:100%}
+
+ /* goals */
+ .mgoal{padding-bottom:calc(var(--m-pad) - 2px)}
+ .mg-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"i tx p" "bar bar bar";gap:10px 12px;align-items:center;margin-top:8px;color:inherit}
+ .mg-i{grid-area:i;display:grid;place-items:center;width:clamp(46px,14vw,56px);aspect-ratio:1;border-radius:14px;background:var(--m-soft)}
+ .mg-tx{grid-area:tx;display:grid;gap:2px;min-width:0}.mg-tx b{font-size:clamp(15px,4.3vw,17px);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mg-tx small{font-size:clamp(12.5px,3.5vw,14px);color:var(--m-sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .mg-bar{grid-area:bar;height:8px;border-radius:99px;background:#EAECF1;overflow:hidden}.mg-bar i{display:block;height:100%;background:var(--m-dark);border-radius:99px;min-width:6px}
+ .mg-p{grid-area:p;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+ @media(min-width:400px){.mg-row{grid-template-columns:auto minmax(0,1.15fr) minmax(0,1fr) auto;grid-template-areas:"i tx bar p"}}
+ .mempty{display:grid;gap:12px;justify-items:start;padding:6px 2px 4px}.mempty p{margin:0;color:var(--m-sub);font-size:14px}
+ .mbtn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:99px;background:var(--m-dark);color:#fff;font-size:14px;font-weight:600}
+
+ /* investment account */
+ .macct{padding:clamp(12px,3.6vw,16px) clamp(10px,3vw,14px) clamp(12px,3.6vw,16px)}
+ .macct .mc-h{padding:0 6px}
+ .vcard{position:relative;overflow:hidden;margin-top:8px;border:1px solid #4a4a4a;border-radius:16px;background:#050505;min-height:clamp(92px,27vw,116px);padding:clamp(14px,4.4vw,20px);display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+ .vc-pat{position:absolute;inset:0;pointer-events:none;background:repeating-radial-gradient(circle at 105% 120%,rgba(255,255,255,.07) 0 1px,transparent 1px 9px);-webkit-mask-image:linear-gradient(100deg,transparent 35%,#000 100%);mask-image:linear-gradient(100deg,transparent 35%,#000 100%)}
+ .vc-l{position:relative;display:grid;gap:10px;align-self:stretch;align-content:space-between}.vc-l .logo-img{--logo-w:clamp(104px,33vw,134px)}
+ .vc-l small{font-size:clamp(8.5px,2.5vw,10.5px);font-weight:700;letter-spacing:.34em;color:#d0d0d0}
+ .vc-n{position:relative;display:flex;align-items:baseline;gap:10px;font-size:clamp(17px,5vw,21px);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.02em}.vc-n span{letter-spacing:.14em;font-size:.8em}
+
+ /* insights */
+ .minsight{padding-bottom:calc(var(--m-pad) - 4px)}
+ .minsight ul{list-style:none;margin:6px 0 0;padding:0}
+ .minsight li+li{border-top:1px solid var(--m-div)}
+ .minsight li a{display:flex;align-items:center;gap:14px;padding:10px 0;color:inherit;min-height:56px}
+ .mn-i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--m-soft);flex:none}
+ .mn-t{display:grid;gap:1px;min-width:0}.mn-t b{font-size:clamp(14px,4vw,15.5px);font-weight:600}.mn-t small{font-size:clamp(12px,3.4vw,13px);color:var(--m-sub);line-height:1.35}
+ .mdash+.banner,.content>.banner{margin-bottom:12px}
+}
+@media(max-width:340px){.mdash{--m-gap:12px}.qgrid{gap:16px 2px}.mp-perf>span{display:none}}
+@media(prefers-reduced-motion:reduce){.qi{transition:none}}

@@ -1,0 +1,13 @@
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const nav=$('#nav'),topBtn=$('#toTop'),menu=$('#mobileMenu'),mb=$('#menuBtn');
+addEventListener('scroll',()=>{const y=scrollY,h=document.body.scrollHeight-innerHeight;nav.classList.toggle('scrolled',y>60);topBtn.classList.toggle('show',y>800);$('#progress').style.width=(y/h*100)+'%'},{passive:true});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const setMenu=o=>{menu.classList.toggle('open',o);mb.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);menu.inert=!o;nav.classList.toggle('menu-open',o);document.body.style.overflow=o?'hidden':''};
+mb.onclick=()=>setMenu(!menu.classList.contains('open'));menu.onclick=e=>e.target.closest('a')&&setMenu(false);
+const links=$$('#sideNav a'),so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{threshold:.4});
+$$('[data-section]').forEach(s=>so.observe(s));
+$$('.acc button').forEach(b=>b.onclick=()=>{const a=b.parentElement,o=!a.classList.contains('open');$$('.acc').forEach(x=>{x.classList.remove('open');$('button',x).setAttribute('aria-expanded',false)});a.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+$$('.tabs').forEach(t=>t.onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('button',t).forEach(x=>x.classList.remove('on'));b.classList.add('on');
+const svg=$('#cryptoChart'),n=8+Math.floor(Math.random()*6);svg.dataset.chart=Array.from({length:n},(_,i)=>30+i*3+Math.random()*18).join(',');Charts.line(svg);requestAnimationFrame(()=>Charts.draw(svg))});
+let tt;document.addEventListener('click',e=>{const b=e.target.closest('[data-toast]');if(!b)return;const t=$('#toast');t.textContent=b.dataset.toast;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2000)});
+$('#news').onsubmit=e=>{e.preventDefault();const i=$('#em'),ok=/^\S+@\S+\.\S+$/.test(i.value);$('#newsMsg').textContent=ok?'Thanks — demo subscription recorded.':'Please enter a valid email address.';if(ok)i.value=''};

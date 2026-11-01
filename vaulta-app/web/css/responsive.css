@@ -1,0 +1,15 @@
+@media(max-width:1200px){.nav-links{gap:16px;font-size:13px;margin-left:20px}}
+@media(min-width:1025px) and (max-width:1399px){.c-gr{padding:12px 14px}.c-gr em{display:block}}
+@media(max-width:1024px){.nav:not(.scrolled) .btn.ghost{background:transparent;border-color:currentColor}.c-gr{top:6%;right:4%}.hero,.split,.about,.invest{grid-template-columns:1fr}.hero-l{padding:120px 40px 50px 60px;min-height:70vh}.grid4,.stats{grid-template-columns:1fr 1fr}.f-cols{grid-template-columns:repeat(3,1fr)}.nav-links{display:none}}
+@media(max-width:768px){.side-nav{display:none}.nav,.nav.scrolled{padding:14px 20px}.nav-cta{display:none}
+.menu-btn{display:grid;gap:6px;background:none;border:0;color:inherit;width:44px;height:44px;place-content:center}.menu-btn span{width:24px;height:2px;background:currentColor;transition:.3s}.menu-btn.open span:first-child{transform:translateY(4px) rotate(45deg)}.menu-btn.open span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.mobile-menu{display:flex;flex-direction:column;gap:6px;position:fixed;inset:0;background:var(--black);color:#fff;z-index:45;padding:100px 28px;font-size:28px;font-weight:700;opacity:0;pointer-events:none;transform:translateY(-10px);transition:.35s}.mobile-menu.open{opacity:1;pointer-events:auto;transform:none}.mobile-menu .btn{margin-top:20px;justify-content:center;background:#fff;color:#000}
+.hero-l{padding:110px 24px 90px;justify-content:flex-start}.hero-copy{margin-top:max(0px,calc(40vh - 110px))}.journey{display:none}.hero-r{min-height:560px}.c-bal{width:70%;left:6%}.c-port{width:58%;left:4%}.c-tr{width:38%}.c-gr{display:none}.blob{width:70%}
+.sec,.footer{padding:80px 24px}.grid3,.grid4,.budget{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.f-cols{grid-template-columns:1fr 1fr}.mini{left:10px}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px}.carousel>*{flex:0 0 85%;scroll-snap-align:center}.row .btn{flex:1 1 auto;justify-content:center}}
+
+/* ===== Mobile description text: 14px (12px for small print) across public pages ===== */
+@media(max-width:768px){
+main p,main ul:not([class])>li,main .rows li,main li>span{font-size:14px!important;line-height:1.6}
+main p.ct-demo,main p small{font-size:12px!important}
+}

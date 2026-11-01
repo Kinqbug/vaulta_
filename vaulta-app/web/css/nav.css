@@ -1,0 +1,20 @@
+/* Shared back button (web/js/nav.js). Sits at the top-left of the page content, above the page title; independent of the sidebar and the mobile menu. */
+.vbar{display:block;margin:0 0 10px;min-height:0}
+.vbar[hidden]{display:none}
+.vback{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:-8px;padding:0;border:0;border-radius:8px;background:transparent;color:#0A0A0A;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s,opacity .15s}
+.vback:hover{opacity:.65}
+.vback:active{transform:translateX(-2px)}
+.vback:focus-visible{outline:2px solid #0A0A0A;outline-offset:2px}
+.vback svg{flex:none;width:22px;height:22px}
+@media(max-width:860px){.vback{width:44px;height:44px}}
+/* customer dashboard: the bar lives between the black header and the page; give it the page's gutters */
+.main>.vbar{padding:2px 0 0}
+@media(max-width:860px){.main>.vbar{padding:2px 14px 0}}
+@media(min-width:600px) and (max-width:860px){.main>.vbar{padding:2px 20px 0}}
+/* admin console: same gutters as .adm-main */
+.adm-col>.vbar{padding:clamp(14px,1.6vw,22px) clamp(16px,2vw,28px) 0;margin:0}
+.adm-col>.vbar:not([hidden])+.adm-main{padding-top:10px}
+@media(max-width:560px){.adm-col>.vbar{padding:12px 12px 0}}
+@media print{.vbar{display:none}}
+/* the router moves focus to the page container after each navigation (screen readers); that container is not interactive, so it gets no visible ring */
+#view:focus,#view:focus-visible{outline:none}
